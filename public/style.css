@@ -1,0 +1,20 @@
+body {
+    background-color: silver;
+    background-image: url('/img/lEye.jpg');
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.city {
+    display: flex;
+    justify-content: center;
+}
+
+.temp {
+    color: red;
+    display: flex;
+    justify-content: center;
+}
