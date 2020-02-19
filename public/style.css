@@ -1,6 +1,8 @@
 body {
-    background-color: silver;
-    background-image: url('/img/lEye.jpg');
+    background-color: gold;
+    background-image: url("../img/lEye.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 h1 {
@@ -17,4 +19,5 @@ h1 {
     color: red;
     display: flex;
     justify-content: center;
+    font-size: 30px;
 }
