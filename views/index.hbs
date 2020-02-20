@@ -1,4 +1,21 @@
 <h1>Current weather data</h1>
 
-<p class="city" > {{city}} </p>
-<p class="temp" > {{temp}}°C</p>
+{{!-- old code --}}
+{{!-- <p class="city" > {{city}} </p> --}}
+{{!-- <p class="temp" > {{temp}}°C</p> --}}
+
+<ul>
+    {{#each data}}
+        <li class="city">{{@key}} : {{this}}</li>
+    {{/each}}
+</ul>
+
+<form action="/" method="post">
+    <label for="location">Location: </label>
+    <input type="text" name="location"></input>
+    <br>
+    <label for="location">Country Code: </label>
+    <input type="text" name="countryCode"></input>
+    <br>
+    <input type="submit" value="send">
+</form>
