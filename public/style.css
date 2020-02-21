@@ -1,9 +1,9 @@
-body {
+/* body {
     background-color: gold;
     background-image: url("../img/lEye.jpg");
     background-repeat: no-repeat;
     background-position: center;
-}
+} */
 
 h1 {
     display: flex;

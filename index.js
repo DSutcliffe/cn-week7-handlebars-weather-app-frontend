@@ -34,14 +34,15 @@ app.set('view engine', '.hbs');
 app.get('/', (req, res) => {
     res.render('index');
 })
+
 // Make function asynchronous
 app.post('/', async(req, res) => {
-    let location = req.body.location;
+    let cityName = req.body.location;
     let countryCode = req.body.countryCode;
-    console.log(location);
+    console.log(cityName);
 
     // Wait for getWeather function to run and store in the 'data'
-    let data = await getWeather(location, countryCode);
+    let data = await getWeather(cityName, countryCode);
 
     // data is already made up of data.body - return data.body in getWeather
     console.log(data)
@@ -54,6 +55,30 @@ app.post('/', async(req, res) => {
     // show temp (temp must be stated in index.hbs <p>{{...}}</p>)
     res.render('index', {data: {temp, city}});
 });
+
+app.get('/about', (req, res) => {
+    res.render('about');
+})
+
+// Make function asynchronous
+app.post('/about', async(req, res) => {
+    let cityName = req.body.location;
+    let countryCode = req.body.countryCode;
+    console.log(cityName);
+
+    let data = await hourlyForecast(cityName, countryCode);
+
+    console.log(data)
+
+    let temp = (data.main.temp - 273).toFixed(2);
+    let city = data.name;
+
+    res.render('index', {data: {temp, city}});
+});
+
+app.get('/windspeed', (req, res) => {
+    res.render('windspeed');
+})
 
 app.listen(3000, () => {
     console.log('server listening on port 3000');
